@@ -1,0 +1,5 @@
+Observando o tempo do algoritmo $A$, como o expoente crítico é $\log_2 8 = 3$ e $n^2 \in O\left(n^{3 - \epsilon}\right)$ com $\epsilon = 1 > 0$, o teorema Master nos diz que a recorrência determina a ordem de crescimento do tempo do algoritmo, isto é, $T_A(n) \in \Theta\left(n^3\right)$.
+
+Agora, para o algoritmo $B$, como $f(n) = n^2$, então $T_B(n) \in \Omega\left(n^2\right)$. Pelo teorema Master, para que $\alpha$ determine o crescimento da função queremos que o expoente crítico seja $2 < \log_3 \alpha$, isto é, $\alpha > 3^2 = 9$. Com essa condição, $T_B(n) \in \Theta\left(n^{\log_3 \alpha}\right)$.
+
+Considerando as variáveis que temos controle, para que $T_B(n) \in o\left(T_A(n)\right)$, $\alpha$ deve ser escolhido de modo que $n^{\log_3 \alpha} \in o\left(n^3\right)$. Logo, teremos que $\log_3 \alpha < 3$, ou seja, $\alpha < 3^3 = 27$. Como $\alpha$ deve ser inteiro, a escolha de maior valor é $\alpha = 26$.

@@ -1,0 +1,37 @@
+Aplicando a fórmula de recorrência iterativamente, podemos ver que
+\begin{align*}
+    T(n) &= 2n - 1 + T(n - 1) \\
+    &= 2n - 1 + 2 (n - 1) - 1 + T(n - 2) \\
+    &= 2 \left[n + (n - 1)\right] - \left[1 + 1\right] + T(n - 2) \\
+    &= 2 \left[n + (n - 1)\right] - \left[1 + 1\right] + 2 (n - 2) - 1 + T(n - 3) \\
+    &= 2 \left[n + (n - 1) + (n - 2)\right] - \left[1 + 1 + 1\right] + T(n - 3) \\
+    &= \cdots \\
+    &= 2 \left[n + (n - 1) + \cdots + 2\right] - \left[1 + \cdots + 1\right] + T(1) \\
+    &= 2 \sum_{i = 2}^n i - \sum_{i = 2}^n 1 + 1 \\
+    &= 2 \left[\frac{n (n + 1)}{2} - 1\right] - (n - 1) + 1 \\
+    &= n^2
+\end{align*}
+
+\itemsep
+
+\begin{proof}[Demonstração de $T(n) = n^2$]~
+
+    ~
+
+    Caso base: Para $n = 1$, temos que $T(1) = 1 = 1^2$, como esperado.
+
+    ~
+
+    Passo indutivo: Suponha que $T(n) = n^2$ para algum $n \geq 1$. Assim, podemos aplicar o método da substituição em $T(n+1)$.
+
+    \begin{align*}
+        T(n + 1) &= T(n) + 2(n + 1) - 1 \\
+        &= n^2 + 2n + 2 - 1 \\
+        &= n^2  + 2n + 1 \\
+        &= (n + 1)^2
+    \end{align*}
+
+    ~
+
+    Portanto, como a fórmula fechada é válida para $T(n)$ quando $n = 1$ ou quando $T(n-1) = (n - 1)^2$, o princípio da indução finita nos permite afirmar que $T(n) = n^2$ no domínio proposto.
+\end{proof}

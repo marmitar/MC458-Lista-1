@@ -1,0 +1,50 @@
+\subsection{a}
+
+Vale a pena notar aqui que $\ln(n) \in o\left(n^\epsilon\right)$ para qualquer $\epsilon > 0$, pois
+
+\begin{align*}
+    \lim_{n \to \infty} \frac{\ln(n)}{n^\epsilon} = \lim_{n \to \infty} \frac{n^{-1}}{\epsilon\, n^{\epsilon - 1}} = \frac{1}{\epsilon} \lim_{n \to \infty} \frac{1}{n^\epsilon} = 0
+\end{align*}
+
+Com isso, podemos escolher $g(n) = \dfrac{n^k}{\ln n}$ como contraexemplo, pois $g \in o\left(n^k\right)$ e $g \in \omega\left(n^{k-\epsilon}\right)$.
+
+\skipline
+\itemsep
+
+\begin{proof}
+    Suponha $k \geq 1$. Seja $g: \real^{>1} \mapsto \real^+$ dada por $g(x) = \dfrac{x^k}{\ln x}$. Logo,
+
+    \begin{align*}
+        \lim_{x \to \infty} \frac{g(x)}{x^k}
+        &= \lim_{x \to \infty} \frac{x^k / \ln x}{x^k} \\
+        &= \lim_{x \to \infty} \frac{1}{\ln x} \\
+        &= 0
+    \end{align*}
+
+    Como $g$ é contínua e monotônica para $x > k e$, então o limite também vale para os naturais, ou seja, $g \in o\left(n^k\right)$.
+
+    ~
+
+    Suponha agora um $\epsilon > 0$. Como $x^\epsilon$ e $\ln x$ são contínuas, diferenciáveis e crescem indefinidamente, então  comparando $g(x)$ com $x^{k - \epsilon}$, teremos que
+
+    \begin{align*}
+        \lim_{x \to \infty} \frac{g(x)}{x^{k-\epsilon}}
+        &= \lim_{x \to \infty} \frac{x^k / \ln x}{x^k / x^\epsilon} \\
+        &= \lim_{x \to \infty} \frac{x^\epsilon}{\ln x} \\
+        &= \lim_{x \to \infty} \frac{\epsilon\, x^{\epsilon-1}}{x^{-1}} \\
+        &= \lim_{x \to \infty} \epsilon x^\epsilon \\
+        &= \infty
+    \end{align*}
+
+    Novamente, como as funções são contínuas e monotônicas, a comparação continua válida para os naturais. Então, podemos afirmar que para todo $\epsilon > 0$, $g \in \omega\left(n^{k-\epsilon}\right)$ e, por isso, $g \not\in O\left(n^{k-\epsilon}\right)$.
+
+    Por fim, considerando $g^\star: \natural \mapsto \real$ a restrição de $g$ aos naturais dada por:
+    \[
+        g^\star(n) = \begin{cases}
+            \quad 0 & \text{ se } n = 0 \text{ ou } n = 1 \\
+            \dfrac{n^k}{\ln(n)} & \text{ se } n > 1
+        \end{cases}
+    \]
+    Como $g^\star(n) = g(n)$ para $n > 1$, o crescimento assintótico delas é o mesmo. Logo, teremos que $g^\star \in o\left(n^k\right)$, mas não existe $\epsilon > 0$ tal que $g^\star \in O\left(n^{k-\epsilon}\right)$. Portanto, Chorãozinho está errado.
+\end{proof}
+

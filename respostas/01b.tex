@@ -1,0 +1,20 @@
+\subsection{b}
+
+\begin{proof}
+    Suponha uma função $g: \natural \mapsto \real$ tal que $g \in O\left(n^{k-\epsilon}\right)$, para um real $\epsilon > 0$. Logo, temos um $\epsilon \in \real^+$, uma constante $c_1 \in \real^+$ e um $n_1 \in \natural$ tal que para todo natural $n > n_1$, sabemos que $0 \leq g(n) \leq c_1\, n^{k - \epsilon}$. Suponha ainda uma constante $c_2 \in \real^+$ qualquer e considere o natural $n_2 = \left\lceil(c_1 / c_2)^{1/\epsilon}\right\rceil$.
+
+    Então, para um natural $n > n_2$, teremos que
+    \begin{align*}
+        n > n_2 = \left\lceil(c_1 / c_2)^{1/\epsilon}\right\rceil \geq \left(\frac{c_1}{c_2}\right)^{1/\epsilon}
+    \end{align*}
+    Como $x^\epsilon$ é estritamente crescente, já que $\epsilon > 0$, então $n^\epsilon > \frac{c_1}{c_2}$. Logo,
+    \begin{align*}
+        c_1\, n^{k-\epsilon} = c_1\, \frac{n^k}{n^\epsilon} < c_1\, \frac{n^k}{c_1 / c_2} = c_2\, n^k
+    \end{align*}
+
+    Assim, seja $n_0 = \max\{n_1, n_2\}$ e suponha $n > n_0$, ou seja, $n > n_1$ e $n > n_2$. Logo,
+    \[
+        0 \leq g(n) \leq c_1 n^{k-\epsilon} < c_2 n^k
+    \]
+    Ou seja, para qualquer $c_2$ positivo, existe $n_0$ tal que $0 \leq g(n) < c_2 n^k$ para $n > n_0$. Portanto, $g \in o\left(n^k\right)$. Como $g \in O\left(n^{k-\epsilon}\right)$ era arbitrária, Xitoró está correto.
+\end{proof}
